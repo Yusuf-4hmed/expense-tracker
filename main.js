@@ -96,7 +96,7 @@ const newExpense = () => {
                     </div> 
                 </div>
                 <div class="mt-5">
-                    <p class="text-gray-700 text-center text-6xl price">£${newExpenseValues.price.toFixed(2)}</p>
+                    <p class="text-gray-700 text-center text-4xl sm:text-6xl price">£${newExpenseValues.price.toFixed(2)}</p>
                 </div>   
             </div>`;
         hideNewExpenseForm(),
@@ -137,9 +137,9 @@ const loadExpenses = () => {
     if (localStorage.getItem("expenses")) {
         expenseContainer.innerHTML = localStorage.getItem("expenses")
     } else {
-        expenseContainer.innerHTML = `<div class="w-60 h-40 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
+        expenseContainer.innerHTML = `<div class="sm:w-60 w-40 sm:h-40 h-30 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
                 <p class="font-bold text-5xl">+</p>
-                <p>Create New Expense</p>
+                <p class="text-center">Create New Expense</p>
             </div>`;
     }
 
@@ -152,3 +152,25 @@ const loadExpenses = () => {
 }
 
 loadExpenses()
+
+const burger = document.getElementById("burger");
+
+const hideNav = () => {
+    nav.classList.add("hidden");
+    main.classList.remove("opacity-30");
+}
+const showNav = () => {
+    nav.classList.remove("hidden");
+    main.classList.add("opacity-30");
+}
+
+main.addEventListener("click", (e) => {
+    if (!e.target.closest(".small-nav")) {
+      hideNav()  
+    }
+    
+})
+
+burger.addEventListener("click", () => {
+    showNav()
+})

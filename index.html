@@ -12,7 +12,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body class="flex">
-    <article class="border border-gray-200 rounded-xl p-3 w-130 h-65 z-2 fixed bg-white left-0 right-0 mx-auto top-0 bottom-0 my-auto hidden" id="form-new-expense">
+    <article class="border border-gray-200 rounded-xl p-3 sm:w-130 max-w-130 h-65 z-2 fixed bg-white left-0 right-0 sm:mx-auto mx-1 top-0 bottom-0 my-auto hidden" id="form-new-expense">
         <div class="flex justify-center items-center flex-col gap-1">
             <button class="ml-auto cursor-pointer" id="close-new-expense-form">
                 <ion-icon class="" name="close-circle"></ion-icon>
@@ -21,7 +21,7 @@
         <h3 class="text-2xl font-bold">Create New Expense:</h1>
         <div class="flex flex-col gap-1">
             
-            <input class="border border-gray-200 rounded-md p-1 w-100" type="text" placeholder="e.g Car Insurance" id="expense-name">
+            <input class="border border-gray-200 rounded-md p-1 sm:w-100 max-w-100" type="text" placeholder="e.g Car Insurance" id="expense-name">
             <input class="border border-gray-200 rounded-md p-1" type="number" min="1" id="expense-price" placeholder="e.g £499.99">
             <select class="border border-gray-200 rounded-md p-1" name="type" id="expense-category">
                 <option value="unassigned">Category</option>
@@ -37,7 +37,9 @@
         </div>
         </div>
     </article>
-    <nav class="w-70 h-dvh border-r-1 border-gray-200 p-4 bg-white" id="nav">
+    
+    <nav class="w-70 h-dvh border-r-1 border-gray-200 p-4 bg-white sm:static fixed sm:inline hidden z-3" id="nav">
+        <div></div>
         <h2 class="text-3xl font-bold align">Expense Tracker</h2>
         <ul class="text-xl flex flex-col  mt-10">
             <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200">
@@ -50,17 +52,22 @@
             </li>
         </ul>
     </nav>
-    <main class="p-2 bg-white w-10/10 pr-5" id="main">
-        <div class="flex items-center justify-end">
-            <h2 class="text-3xl font-medium align pl-5">Total Expenses Per Month: </h2>
+    <main class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh" id="main">
+        <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav">
+            <ion-icon class="justify-start text-3xl cursor-pointer" id="burger" name="menu"></ion-icon>
+            <p>Expenses</p>
+            <p></p>
+        </div>
+        <div class="flex items-center sm:justify-end justify-start ">
+            <h2 class="sm:text-3xl text-2xl font-medium align pl-5">Total Expenses Per Month: </h2>
             <p class="text-3xl font-extrabold border border-gray-200 p-2 rounded-md ml-5" id="total-expenses">£00.00</p>  
         </div>
-        <div class="flex flex-wrap gap-2 p-5" id="expense-container">
-            <div class="sm:w-60 w-40 h-40 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
+        <div class="flex flex-wrap gap-2 sm:p-5 p-2" id="expense-container">
+            <div class="sm:w-60 w-40 sm:h-40 h-30 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
                 <p class="font-bold text-5xl">+</p>
                 <p>Create New Expense</p>
             </div>
-            
+           
             
         </div>
 
