@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link href="./src/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body class="flex">
+    <article class="border border-gray-200 rounded-xl p-3 w-130 h-65 z-2 fixed bg-white left-0 right-0 mx-auto top-0 bottom-0 my-auto hidden" id="form-new-expense">
+        <div class="flex justify-center items-center flex-col gap-1">
+            <button class="ml-auto cursor-pointer" id="close-new-expense-form">
+                <ion-icon class="" name="close-circle"></ion-icon>
+            </button>
+             
+        <h3 class="text-2xl font-bold">Create New Expense:</h1>
+        <div class="flex flex-col gap-1">
+            
+            <input class="border border-gray-200 rounded-md p-1 w-100" type="text" placeholder="e.g Car Insurance" id="expense-name">
+            <input class="border border-gray-200 rounded-md p-1" type="number" min="1" id="expense-price" placeholder="e.g £499.99">
+            <select class="border border-gray-200 rounded-md p-1" name="type" id="expense-category">
+                <option value="unassigned">Category</option>
+                <option value="bills">Bills</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="food">Food</option>
+                <option value="rent">Rent</option>
+                <option value="debt">Debt</option>
+                <option value="charity">Charity</option>
+                <option value="education">Education</option>
+            </select>
+            <button class=" bg-blue-200 cursor-pointer rounded-md hover:bg-blue-300" onclick="newExpense()">Create Expense</button>
+        </div>
+        </div>
+    </article>
+    <nav class="w-70 h-dvh border-r-1 border-gray-200 p-4 bg-white" id="nav">
+        <h2 class="text-3xl font-bold align">Expense Tracker</h2>
+        <ul class="text-xl flex flex-col  mt-10">
+            <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200">
+                <ion-icon class="pb-0.5" name="podium-outline"></ion-icon>
+                <p>Dashboard</p>
+            </li>
+            <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200">
+                <ion-icon class="pb-0.5" name="reader-outline"></ion-icon>
+                <p>Expenses</p>
+            </li>
+        </ul>
+    </nav>
+    <main class="p-2 bg-white w-10/10" id="main">
+        <div class="flex items-center">
+            <h2 class="text-3xl font-medium align pl-5">Total Expenses Per Month: </h2>
+            <p class="text-3xl font-extrabold border border-gray-200 p-2 rounded-md ml-5" id="total-expenses">£00.00</p>  
+        </div>
+        <div class="flex flex-wrap gap-2 p-5" id="expense-container">
+            <div class="w-60 h-40 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
+                <p class="font-bold text-5xl">+</p>
+                <p>Create New Expense</p>
+            </div>
+
+            
+        </div>
+
+        
+        
+    </main>
+    <script src="main.js"></script>
+</body>
+</html> 
