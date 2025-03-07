@@ -53,8 +53,8 @@ let total = 0;
 const newExpense = () => {
     if (expenseName.value && expensePrice.value && expenseCategory.value) {
         newExpenseValues.name = expenseName.value;
-        newExpenseValues.price = expensePrice.value;
-        total += Number(newExpenseValues.price);
+        newExpenseValues.price = Number(expensePrice.value);
+        total += newExpenseValues.price;
         console.log(total)
         newExpenseValues.category = expenseCategory.value;
         console.log(newExpenseValues)
@@ -62,41 +62,41 @@ const newExpense = () => {
         let bgColor = ""
 
         switch (expenseCategory.value) {
-            case "bills":
+            case "Bills":
                 bgColor = "bg-red-300"
                 break;
-            case "entertainment":
+            case "Entertainment":
                 bgColor = "bg-yellow-300"
                 break;
-            case "food":
+            case "Food":
                 bgColor = "bg-purple-300"
                 break;
-            case "rent":
+            case "Rent":
                 bgColor = "bg-brown-300"
                 break;
-            case "debt":
+            case "Debt":
                 bgColor = "bg-orange-300"
                 break;
-            case "charity":
+            case "Charity":
                 bgColor = "bg-green-300"
                 break;
-            case "education":
+            case "Education":
                 bgColor = "bg-pink-300"
                 break;
         }
 
-        expenseContainer.innerHTML += `<div class="w-60 h-40 bg-white border border-gray-200 rounded-xl p-2 flex flex-col expense">
+        expenseContainer.innerHTML += `<div class="sm:w-60 w-40 bg-white border border-gray-200 rounded-xl p-2 flex flex-col expense">
                 <div class="flex justify-between">
                    <div>
                         <h3>${newExpenseValues.name}</h3>
-                        <p class="${bgColor} p-0.5 rounded-md text-xs text-center inline">${newExpenseValues.category}</p>
+                        <p class="${bgColor} p-0.5 rounded-md text-xs text-center inline min-w-4S">${newExpenseValues.category}</p>
                     </div>
                     <div>
                         <ion-icon class="justify-end cursor-pointer delete-button" name="close-circle"></ion-icon> 
                     </div> 
                 </div>
                 <div class="mt-5">
-                    <p class="text-gray-700 text-center text-6xl price">£${newExpenseValues.price}</p>
+                    <p class="text-gray-700 text-center text-6xl price">£${newExpenseValues.price.toFixed(2)}</p>
                 </div>   
             </div>`;
         hideNewExpenseForm(),
@@ -117,12 +117,19 @@ document.addEventListener("click", (e) => {
 
         expenseElement.remove()
         saveExpenses()
+
+        if (!expenseContainer.querySelector(".expense")) {
+            console.log(1)
+            total = 0
+            totalExpenses.innerText = `£ ${total.toFixed(2)}`
+            saveExpenses()
+        }
     }
 })
 
 const saveExpenses = () => {
     localStorage.setItem("expenses", expenseContainer.innerHTML);
-    localStorage.setItem("total", total)
+    localStorage.setItem("total", total);
 }
 
 const loadExpenses = () => {

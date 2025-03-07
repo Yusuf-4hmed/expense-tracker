@@ -25,13 +25,13 @@
             <input class="border border-gray-200 rounded-md p-1" type="number" min="1" id="expense-price" placeholder="e.g £499.99">
             <select class="border border-gray-200 rounded-md p-1" name="type" id="expense-category">
                 <option value="unassigned">Category</option>
-                <option value="bills">Bills</option>
-                <option value="entertainment">Entertainment</option>
-                <option value="food">Food</option>
-                <option value="rent">Rent</option>
-                <option value="debt">Debt</option>
-                <option value="charity">Charity</option>
-                <option value="education">Education</option>
+                <option value="Bills">Bills</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Food">Food</option>
+                <option value="Rent">Rent</option>
+                <option value="Debt">Debt</option>
+                <option value="Charity">Charity</option>
+                <option value="Education">Education</option>
             </select>
             <button class=" bg-blue-200 cursor-pointer rounded-md hover:bg-blue-300" onclick="newExpense()">Create Expense</button>
         </div>
@@ -50,17 +50,17 @@
             </li>
         </ul>
     </nav>
-    <main class="p-2 bg-white w-10/10" id="main">
-        <div class="flex items-center">
+    <main class="p-2 bg-white w-10/10 pr-5" id="main">
+        <div class="flex items-center justify-end">
             <h2 class="text-3xl font-medium align pl-5">Total Expenses Per Month: </h2>
             <p class="text-3xl font-extrabold border border-gray-200 p-2 rounded-md ml-5" id="total-expenses">£00.00</p>  
         </div>
         <div class="flex flex-wrap gap-2 p-5" id="expense-container">
-            <div class="w-60 h-40 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
+            <div class="sm:w-60 w-40 h-40 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
                 <p class="font-bold text-5xl">+</p>
                 <p>Create New Expense</p>
             </div>
-
+            
             
         </div>
 
