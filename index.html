@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body class="flex">
-    <article class="border border-gray-200 rounded-xl p-3 sm:w-130 max-w-130 h-65 z-2 fixed bg-white left-0 right-0 sm:mx-auto mx-1 top-0 bottom-0 my-auto hidden" id="form-new-expense">
+    <article class="border border-gray-200 rounded-xl p-3 sm:w-130 max-w-130 h-65 z-2 fixed bg-white left-0 right-0 mx-auto top-0 bottom-0 my-auto hidden justify-center" id="form-new-expense">
         <div class="flex justify-center items-center flex-col gap-1">
             <button class="ml-auto cursor-pointer" id="close-new-expense-form">
                 <ion-icon class="" name="close-circle"></ion-icon>
@@ -21,10 +21,10 @@
         <h3 class="text-2xl font-bold">Create New Expense:</h1>
         <div class="flex flex-col gap-1">
             
-            <input class="border border-gray-200 rounded-md p-1 sm:w-100 max-w-100" type="text" placeholder="e.g Car Insurance" id="expense-name">
+            <input class="border border-gray-200 rounded-md p-1 sm:w-200 max-w-100" type="text" placeholder="e.g Car Insurance" id="expense-name">
             <input class="border border-gray-200 rounded-md p-1" type="number" min="1" id="expense-price" placeholder="e.g £499.99">
             <select class="border border-gray-200 rounded-md p-1" name="type" id="expense-category">
-                <option value="unassigned">Category</option>
+                <option value="" disable selected hidden>Category</option>
                 <option value="Bills">Bills</option>
                 <option value="Entertainment">Entertainment</option>
                 <option value="Food">Food</option>
@@ -35,6 +35,17 @@
             </select>
             <button class=" bg-blue-200 cursor-pointer rounded-md hover:bg-blue-300" onclick="newExpense()">Create Expense</button>
         </div>
+        </div>
+    </article>
+    <article class="shadow rounded-xl p-3 sm:w-130 max-w-70 h-45 z-2 fixed bg-white left-0 right-0 mx-auto top-0 bottom-0 my-auto flex flex-col justify-between hidden" id="delete-expense">
+        <div class="flex flex-col gap-1">
+            <h3 class="text-2xl font-bold">Delete Expense</h3>
+            <p>Are you sure you want to delete this expense?</p>
+        </div>
+        <div class="flex gap-1 justify-end">
+            
+            <button class="w-20 bg-white border border-gray-200 cursor-pointer rounded-md p-1 hover:bg-gray-200" onclick="newExpense()" id="cancel-button">Cancel</button>
+            <button class="w-20 bg-red-400 cursor-pointer rounded-md p-1 hover:bg-red-500" onclick="newExpense()" id="delete-button">Delete</button>
         </div>
     </article>
     
@@ -53,12 +64,12 @@
         </ul>
     </nav>
     <main class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh" id="main">
-        <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav">
-            <ion-icon class="justify-start text-3xl cursor-pointer" id="burger" name="menu"></ion-icon>
-            <p>Expenses</p>
+        <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
+            <ion-icon class="justify-start text-4xl cursor-pointer" id="burger" name="menu"></ion-icon>
+            <p class="pr-10">Expenses</p>
             <p></p>
         </div>
-        <div class="flex items-center sm:justify-end justify-start ">
+        <div class="flex sm:flex-row flex-col items-center sm:justify-end justify-center mb-5">
             <h2 class="sm:text-3xl text-2xl font-medium align pl-5">Total Expenses Per Month: </h2>
             <p class="text-3xl font-extrabold border border-gray-200 p-2 rounded-md ml-5" id="total-expenses">£00.00</p>  
         </div>
@@ -66,14 +77,10 @@
             <div class="sm:w-60 w-40 sm:h-40 h-30 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
                 <p class="font-bold text-5xl">+</p>
                 <p>Create New Expense</p>
-            </div>
-           
             
         </div>
-
-        
-        
-    </main>
+    </div>
+           
     <script src="main.js"></script>
 </body>
 </html> 

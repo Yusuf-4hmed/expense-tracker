@@ -6,7 +6,9 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-200: oklch(0.885 0.062 18.334);
     --color-red-300: oklch(0.808 0.114 19.571);
+    --color-red-400: oklch(0.704 0.191 22.216);
     --color-red-500: oklch(0.637 0.237 25.331);
     --color-orange-300: oklch(0.837 0.128 66.29);
     --color-yellow-300: oklch(0.905 0.182 98.111);
@@ -17,6 +19,7 @@
     --color-pink-300: oklch(0.823 0.12 346.018);
     --color-gray-100: oklch(0.967 0.003 264.542);
     --color-gray-200: oklch(0.928 0.006 264.531);
+    --color-gray-300: oklch(0.872 0.01 258.338);
     --color-gray-700: oklch(0.373 0.034 259.733);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -389,6 +392,15 @@
   .mx-1 {
     margin-inline: calc(var(--spacing) * 1);
   }
+  .mx-2 {
+    margin-inline: calc(var(--spacing) * 2);
+  }
+  .mx-20 {
+    margin-inline: calc(var(--spacing) * 20);
+  }
+  .mx-auto {
+    margin-inline: auto;
+  }
   .my-auto {
     margin-block: auto;
   }
@@ -400,6 +412,9 @@
   }
   .mb-5 {
     margin-bottom: calc(var(--spacing) * 5);
+  }
+  .mb-10 {
+    margin-bottom: calc(var(--spacing) * 10);
   }
   .ml-5 {
     margin-left: calc(var(--spacing) * 5);
@@ -497,8 +512,14 @@
   .h-30 {
     height: calc(var(--spacing) * 30);
   }
+  .h-45 {
+    height: calc(var(--spacing) * 45);
+  }
   .h-65 {
     height: calc(var(--spacing) * 65);
+  }
+  .h-345 {
+    height: calc(var(--spacing) * 345);
   }
   .h-dvh {
     height: 100dvh;
@@ -518,17 +539,35 @@
   .w-1\/2 {
     width: calc(1/2 * 100%);
   }
+  .w-10 {
+    width: calc(var(--spacing) * 10);
+  }
   .w-10\/10 {
     width: calc(10/10 * 100%);
   }
+  .w-20 {
+    width: calc(var(--spacing) * 20);
+  }
   .w-40 {
     width: calc(var(--spacing) * 40);
+  }
+  .w-50 {
+    width: calc(var(--spacing) * 50);
   }
   .w-70 {
     width: calc(var(--spacing) * 70);
   }
   .w-screen {
     width: 100vw;
+  }
+  .max-w-70 {
+    max-width: calc(var(--spacing) * 70);
+  }
+  .max-w-80 {
+    max-width: calc(var(--spacing) * 80);
+  }
+  .max-w-90 {
+    max-width: calc(var(--spacing) * 90);
   }
   .max-w-100 {
     max-width: calc(var(--spacing) * 100);
@@ -1150,6 +1189,12 @@
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
+  .border-b-gray-200 {
+    border-bottom-color: var(--color-gray-200);
+  }
+  .border-b-gray-300 {
+    border-bottom-color: var(--color-gray-300);
+  }
   .bg-\(--my_variable\) {
     background-color: var(--my_variable);
   }
@@ -1180,8 +1225,14 @@
   .bg-purple-300 {
     background-color: var(--color-purple-300);
   }
+  .bg-red-200 {
+    background-color: var(--color-red-200);
+  }
   .bg-red-300 {
     background-color: var(--color-red-300);
+  }
+  .bg-red-400 {
+    background-color: var(--color-red-400);
   }
   .bg-red-500 {
     background-color: var(--color-red-500);
@@ -1379,8 +1430,20 @@
   .p-4 {
     padding: calc(var(--spacing) * 4);
   }
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
+  }
+  .pr-10 {
+    padding-right: calc(var(--spacing) * 10);
+  }
+  .pr-20 {
+    padding-right: calc(var(--spacing) * 20);
+  }
   .pb-0\.5 {
     padding-bottom: calc(var(--spacing) * 0.5);
+  }
+  .pl-2 {
+    padding-left: calc(var(--spacing) * 2);
   }
   .pl-5 {
     padding-left: calc(var(--spacing) * 5);
@@ -1442,6 +1505,10 @@
   .text-5xl {
     font-size: var(--text-5xl);
     line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+  .text-6xl {
+    font-size: var(--text-6xl);
+    line-height: var(--tw-leading, var(--text-6xl--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -1687,6 +1754,9 @@
   }
   .scheme-only-light {
     color-scheme: only light;
+  }
+  .opacity-10 {
+    opacity: 10%;
   }
   .opacity-30 {
     opacity: 30%;
@@ -2015,6 +2085,20 @@
       }
     }
   }
+  .hover\:bg-gray-300 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-gray-300);
+      }
+    }
+  }
+  .hover\:bg-red-500 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-red-500);
+      }
+    }
+  }
   .sm\:static {
     @media (width >= 40rem) {
       position: static;
@@ -2045,6 +2129,11 @@
       width: calc(var(--spacing) * 60);
     }
   }
+  .sm\:w-90 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 90);
+    }
+  }
   .sm\:w-100 {
     @media (width >= 40rem) {
       width: calc(var(--spacing) * 100);
@@ -2053,6 +2142,21 @@
   .sm\:w-130 {
     @media (width >= 40rem) {
       width: calc(var(--spacing) * 130);
+    }
+  }
+  .sm\:w-200 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 200);
+    }
+  }
+  .sm\:w-1300 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 1300);
+    }
+  }
+  .sm\:flex-row {
+    @media (width >= 40rem) {
+      flex-direction: row;
     }
   }
   .sm\:justify-end {

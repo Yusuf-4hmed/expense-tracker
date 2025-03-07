@@ -8,7 +8,7 @@ const showNewExpenseForm = () => {
     formNewExpense.classList.remove("hidden");
     main.style.opacity = "0.2";
     nav.style.opacity = "0.2";
-    formNewExpense.style.opacity = "1";
+    // formNewExpense.style.opacity = "1";
 }
 
 const hideNewExpenseForm = () => {
@@ -105,25 +105,50 @@ const newExpense = () => {
     }
 }
 
+const deleteExpense = document.getElementById("delete-expense")
+const deleteButton = document.getElementById("delete-button")
+const cancelButton = document.getElementById("cancel-button")
+
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-button")) {
-        const expenseElement = e.target.closest(".expense");
-        const priceElement = expenseElement.querySelector(".price");
-        const price = parseFloat(priceElement.innerText.replace("£", ""));
+        deleteExpense.classList.remove("hidden");
+        main.style.opacity = "0.3";
+        nav.style.opacity = "0.3";
+        
 
-        total -= price;
+        deleteButton.addEventListener("click", () => {
+            main.style.opacity = "1";
+            nav.style.opacity = "1";
 
-        totalExpenses.innerText = `£ ${total.toFixed(2)}`
+            const expenseElement = e.target.closest(".expense");
+            const priceElement = expenseElement.querySelector(".price");
+            const price = parseFloat(priceElement.innerText.replace("£", ""));
 
-        expenseElement.remove()
-        saveExpenses()
+            total -= price;
 
-        if (!expenseContainer.querySelector(".expense")) {
-            console.log(1)
-            total = 0
             totalExpenses.innerText = `£ ${total.toFixed(2)}`
+
+            expenseElement.remove()
             saveExpenses()
-        }
+
+            deleteExpense.classList.add("hidden")
+
+            if (!expenseContainer.querySelector(".expense")) {
+                total = 0
+                totalExpenses.innerText = `£ ${total.toFixed(2)}`
+                saveExpenses()
+            }
+        })
+
+        cancelButton.addEventListener("click", () => {
+            main.style.opacity = "1";
+            nav.style.opacity = "1";
+            deleteExpense.classList.add("hidden");
+            
+        })
+        
+
+        
     }
 })
 
