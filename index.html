@@ -53,17 +53,17 @@
         <div></div>
         <h2 class="text-3xl font-bold align">Expense Tracker</h2>
         <ul class="text-xl flex flex-col  mt-10">
-            <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200">
+            <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200" id="dashboard-button">
                 <ion-icon class="pb-0.5" name="podium-outline"></ion-icon>
                 <p>Dashboard</p>
             </li>
-            <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200">
+            <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200" id="expenses-button">
                 <ion-icon class="pb-0.5" name="reader-outline"></ion-icon>
                 <p>Expenses</p>
             </li>
         </ul>
     </nav>
-    <main class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh" id="main">
+    <main class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh " id="main">
         <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
             <ion-icon class="justify-start text-4xl cursor-pointer" id="burger" name="menu"></ion-icon>
             <p class="pr-10">Expenses</p>
@@ -79,7 +79,12 @@
                 <p>Create New Expense</p>
             
         </div>
-    </div>
+    </main>
+    <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh hidden" id="dashboard">
+        <div class="flex ">
+            <h3>Your highest expense category is:</h3>
+        </div>
+    </section>
            
     <script src="main.js"></script>
 </body>

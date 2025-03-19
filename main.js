@@ -72,7 +72,7 @@ const newExpense = () => {
                 bgColor = "bg-purple-300"
                 break;
             case "Rent":
-                bgColor = "bg-brown-300"
+                bgColor = "bg-teal-200"
                 break;
             case "Debt":
                 bgColor = "bg-orange-300"
@@ -198,4 +198,18 @@ main.addEventListener("click", (e) => {
 
 burger.addEventListener("click", () => {
     showNav()
+})
+
+const dashBoardButton = document.getElementById("dashboard-button");
+const expensesButton = document.getElementById("expenses-button");
+const dashboard = document.getElementById("dashboard");
+
+dashBoardButton.addEventListener("click", () => {
+    main.classList.add("hidden");
+    dashboard.classList.remove("hidden");
+})
+
+expensesButton.addEventListener("click", () => {
+    main.classList.remove("hidden");
+    dashboard.classList.add("hidden");
 })
