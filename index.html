@@ -50,7 +50,6 @@
     </article>
     
     <nav class="w-70 h-dvh border-r-1 border-gray-200 p-4 bg-white sm:static fixed sm:inline hidden z-3" id="nav">
-        <div></div>
         <h2 class="text-3xl font-bold align">Expense Tracker</h2>
         <ul class="text-xl flex flex-col  mt-10">
             <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200" id="dashboard-button">
@@ -65,7 +64,9 @@
     </nav>
     <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh hidden" id="expenses-page">
         <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
-            <ion-icon class="justify-start text-4xl cursor-pointer" id="exp-burger" name="menu"></ion-icon>
+            <svg id="exp-burger" class="w-10 h-10 text-gray-800 dark:text-white hover:cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+                <path stroke="black" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+              </svg>
             <p class="pr-10">Expenses</p>
             <p></p>
         </div>
@@ -83,7 +84,10 @@
 
     <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh" id="dashboard-page">
         <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
-            <ion-icon class="justify-start text-4xl cursor-pointer" id="dash-burger" name="menu"></ion-icon>
+            <svg id="dash-burger" class="w-10 h-10 text-gray-800 dark:text-white hover:cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
+                <path stroke="black" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
+              </svg>
+              
             <p class="pr-10">Expenses</p>
             <p></p>
         </div>
