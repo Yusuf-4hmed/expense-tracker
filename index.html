@@ -63,15 +63,15 @@
             </li>
         </ul>
     </nav>
-    <main class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh " id="main">
+    <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh hidden" id="expenses-page">
         <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
-            <ion-icon class="justify-start text-4xl cursor-pointer" id="burger" name="menu"></ion-icon>
+            <ion-icon class="justify-start text-4xl cursor-pointer" id="exp-burger" name="menu"></ion-icon>
             <p class="pr-10">Expenses</p>
             <p></p>
         </div>
-        <div class="flex sm:flex-row flex-col items-center sm:justify-end justify-center mb-5">
-            <h2 class="sm:text-3xl text-2xl font-medium align pl-5">Total Expenses Per Month: </h2>
-            <p class="text-3xl font-extrabold border border-gray-200 p-2 rounded-md ml-5" id="total-expenses">£00.00</p>  
+        <div class="flex sm:flex-row flex-col items-center sm:justify-start  mb-5">
+            <h2 class="sm:text-3xl text-2xl font-medium align pl-5">Manage your expenses</h2>
+            
         </div>
         <div class="flex flex-wrap gap-2 sm:p-5 p-2" id="expense-container">
             <div class="sm:w-60 w-40 sm:h-40 h-30 bg-white border-2 border-dashed border-gray-200 rounded-xl p-2 flex flex-col justify-center items-center cursor-pointer hover:bg-gray-100" id="create-new-expense">
@@ -79,10 +79,32 @@
                 <p>Create New Expense</p>
             
         </div>
-    </main>
-    <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh hidden" id="dashboard">
-        <div class="flex ">
-            <h3>Your highest expense category is:</h3>
+    </section>
+
+    <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh" id="dashboard-page">
+        <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
+            <ion-icon class="justify-start text-4xl cursor-pointer" id="dash-burger" name="menu"></ion-icon>
+            <p class="pr-10">Expenses</p>
+            <p></p>
+        </div>
+        <div class="flex sm:flex-row flex-col items-center sm:justify-start  mb-5">
+            <h2 class="sm:text-3xl text-2xl font-medium align pl-5">Expense Dashboard</h2>
+            
+        </div>
+        <div class="flex flex-wrap sm:p-5 p-2 gap-2">
+            <div class="sm:w-50 w-30 sm:h-30 h-20 border-gray-200 border sm:p-5 rounded-xl flex flex-col justify-center">
+               <h3>Total Spend</h3>
+                <p class="text-3xl font-extrabold rounded-md" id="total-expenses">£00.00</p> 
+            </div>
+            <div class="sm:w-50 w-30 sm:h-30 h-20 border-gray-200 border sm:p-5 rounded-xl flex flex-col justify-center">
+               <h3>Highest Category</h3>
+                <p id="dash-high-category" class="text-3xl font-extrabold rounded-md">null</p> 
+            </div>
+            <div class="sm:w-50 w-30 sm:h-30 h-20 border-gray-200 border sm:p-5 rounded-xl flex flex-col justify-center">
+               <h3>No. of expenses</h3>
+                <p id="no-of-expenses" class="text-3xl font-extrabold rounded-md" id="total-expenses">0</p> 
+            </div>
+            
         </div>
     </section>
            

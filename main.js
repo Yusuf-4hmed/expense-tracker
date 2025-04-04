@@ -1,19 +1,22 @@
 const createNewExpense = document.getElementById("create-new-expense");
 const formNewExpense = document.getElementById("form-new-expense");
-const main = document.getElementById("main");
+
+const expensesPage = document.getElementById("expenses-page");
+const dashboardPage = document.getElementById("dashboard-page")
+
 const nav = document.getElementById("nav");
 const closeNewExpenseForm = document.getElementById("close-new-expense-form");
 
 const showNewExpenseForm = () => {
     formNewExpense.classList.remove("hidden");
-    main.style.opacity = "0.2";
+    expensesPage.style.opacity = "0.2";
     nav.style.opacity = "0.2";
     // formNewExpense.style.opacity = "1";
 }
 
 const hideNewExpenseForm = () => {
     formNewExpense.classList.add("hidden");
-    main.style.opacity = "1";
+    expensesPage.style.opacity = "1";
     nav.style.opacity = "1";
     expenseName.value = "";
     expensePrice.value = "";
@@ -39,16 +42,38 @@ const expensePrice = document.getElementById("expense-price");
 const expenseCategory = document.getElementById("expense-category");
 const expenseContainer = document.getElementById("expense-container");
 
+const expense = document.getElementById("expense")
+
 const totalExpenses = document.getElementById("total-expenses");
 
-
-const expense = document.getElementById("expense")
 
 let newExpenseValues = {
 
 }
 
 let total = 0;
+
+
+let categories = {
+    "Bills": 0,
+    "Entertainment": 0,
+    "Food": 0,
+    "Rent": 0,
+    "Debt": 0,
+    "Charity": 0,
+    "Education": 0,
+}
+
+const getNumberOfExpenses = (obj) => {
+    return Object.values(obj).reduce((sum, value) => sum + value, 0)
+}
+const noOfExpenses = document.getElementById("no-of-expenses");
+
+const getHighestCategory = (obj) => {
+    return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
+}  
+const dashHighCategory = document.getElementById("dash-high-category");
+
 
 const newExpense = () => {
     if (expenseName.value && expensePrice.value && expenseCategory.value) {
@@ -57,31 +82,38 @@ const newExpense = () => {
         total += newExpenseValues.price;
         console.log(total)
         newExpenseValues.category = expenseCategory.value;
-        console.log(newExpenseValues)
+        // console.log(newExpenseValues)
 
         let bgColor = ""
 
         switch (expenseCategory.value) {
             case "Bills":
-                bgColor = "bg-red-300"
+                bgColor = "bg-red-300";
+                categories.Bills += 1;
                 break;
             case "Entertainment":
-                bgColor = "bg-yellow-300"
+                bgColor = "bg-yellow-300";
+                categories.Entertainment += 1;
                 break;
             case "Food":
-                bgColor = "bg-purple-300"
+                bgColor = "bg-purple-300";
+                categories.Food += 1;
                 break;
             case "Rent":
-                bgColor = "bg-teal-200"
+                bgColor = "bg-teal-200";
+                categories.Rent += 1;
                 break;
             case "Debt":
-                bgColor = "bg-orange-300"
+                bgColor = "bg-orange-300";
+                categories.Debt += 1;
                 break;
             case "Charity":
-                bgColor = "bg-green-300"
+                bgColor = "bg-green-300";
+                categories.Charity += 1;
                 break;
             case "Education":
-                bgColor = "bg-pink-300"
+                bgColor = "bg-pink-300";
+                categories.Education += 1;
                 break;
         }
 
@@ -89,7 +121,7 @@ const newExpense = () => {
                 <div class="flex justify-between">
                    <div>
                         <h3>${newExpenseValues.name}</h3>
-                        <p class="${bgColor} p-0.5 rounded-md text-xs text-center inline min-w-4S">${newExpenseValues.category}</p>
+                        <p class="${bgColor} p-0.5 rounded-md text-xs text-center inline min-w-4S category">${newExpenseValues.category}</p>
                     </div>
                     <div>
                         <ion-icon class="justify-end cursor-pointer delete-button" name="close-circle"></ion-icon> 
@@ -101,8 +133,15 @@ const newExpense = () => {
             </div>`;
         hideNewExpenseForm(),
         saveExpenses();
+        console.log(categories)
         totalExpenses.innerText = `£ ${total.toFixed(2)}`;
+        console.log("Highest Category: " + getHighestCategory(categories))
+        dashHighCategory.innerText = getHighestCategory(categories)
+        console.log("Total Number Of Expenses: " + getNumberOfExpenses(categories))
+        noOfExpenses.innerText = getNumberOfExpenses(categories)
     }
+
+
 }
 
 const deleteExpense = document.getElementById("delete-expense")
@@ -112,17 +151,32 @@ const cancelButton = document.getElementById("cancel-button")
 document.addEventListener("click", (e) => {
     if (e.target.classList.contains("delete-button")) {
         deleteExpense.classList.remove("hidden");
-        main.style.opacity = "0.3";
+        expensesPage.style.opacity = "0.3";
         nav.style.opacity = "0.3";
         
 
-        deleteButton.addEventListener("click", () => {
-            main.style.opacity = "1";
+        deleteButton.onclick = () => {
+            
+            expensesPage.style.opacity = "1";
             nav.style.opacity = "1";
 
             const expenseElement = e.target.closest(".expense");
             const priceElement = expenseElement.querySelector(".price");
-            const price = parseFloat(priceElement.innerText.replace("£", ""));
+            const price = parseFloat(priceElement.innerText.replace("£", "").trim());
+            const categoryElement = expenseElement.querySelector(".category");
+            const category = categoryElement.textContent;
+
+            if (categories[category] !== 0) {
+                categories[category] -= 1;
+                console.log(categories)
+            }
+
+            console.log("Highest Category: " + getHighestCategory(categories))
+            dashHighCategory.innerText = getHighestCategory(categories)
+            console.log("Total Number Of Expenses: " + getNumberOfExpenses(categories))
+            noOfExpenses.innerText = getNumberOfExpenses(categories)
+
+        
 
             total -= price;
 
@@ -138,10 +192,12 @@ document.addEventListener("click", (e) => {
                 totalExpenses.innerText = `£ ${total.toFixed(2)}`
                 saveExpenses()
             }
-        })
+
+        
+        }
 
         cancelButton.addEventListener("click", () => {
-            main.style.opacity = "1";
+            expensesPage.style.opacity = "1";
             nav.style.opacity = "1";
             deleteExpense.classList.add("hidden");
             
@@ -155,6 +211,7 @@ document.addEventListener("click", (e) => {
 const saveExpenses = () => {
     localStorage.setItem("expenses", expenseContainer.innerHTML);
     localStorage.setItem("total", total);
+    localStorage.setItem("categories", JSON.stringify(categories));
 }
 
 const loadExpenses = () => {
@@ -174,42 +231,80 @@ const loadExpenses = () => {
     } else {
         totalExpenses.innerText = '£00.00'
     }
+
+    if (localStorage.getItem("categories")) {
+        categories = JSON.parse(localStorage.getItem("categories"));
+    } else {
+        categories = {
+            "Bills": 0,
+            "Entertainment": 0,
+            "Food": 0,
+            "Rent": 0,
+            "Debt": 0,
+            "Charity": 0,
+            "Education": 0,
+        };
+    }
 }
 
 loadExpenses()
 
-const burger = document.getElementById("burger");
+const expBurger = document.getElementById("exp-burger");
 
-const hideNav = () => {
+const ExpHideNav = () => {
     nav.classList.add("hidden");
-    main.classList.remove("opacity-30");
+    expensesPage.classList.remove("opacity-30");
 }
-const showNav = () => {
+const ExpShowNav = () => {
     nav.classList.remove("hidden");
-    main.classList.add("opacity-30");
+    expensesPage.classList.add("opacity-30");
 }
 
-main.addEventListener("click", (e) => {
+expensesPage.addEventListener("click", (e) => {
     if (!e.target.closest(".small-nav")) {
-      hideNav()  
+      ExpHideNav()  
     }
     
 })
 
-burger.addEventListener("click", () => {
-    showNav()
+expBurger.addEventListener("click", () => {
+    ExpShowNav()
+})
+
+const dashBurger = document.getElementById("dash-burger");
+
+const DashHideNav = () => {
+    nav.classList.add("hidden");
+    dashboardPage.classList.remove("opacity-30");
+    expensesPage.classList.remove("opacity-30");
+}
+const DashShowNav = () => {
+    nav.classList.remove("hidden");
+    dashboardPage.classList.add("opacity-30");
+    expensesPage.classList.add("opacity-30");
+}
+
+dashboardPage.addEventListener("click", (e) => {
+    if (!e.target.closest(".small-nav")) {
+      DashHideNav()  
+    }
+    
+})
+
+dashBurger.addEventListener("click", () => {
+    DashShowNav()
 })
 
 const dashBoardButton = document.getElementById("dashboard-button");
 const expensesButton = document.getElementById("expenses-button");
-const dashboard = document.getElementById("dashboard");
 
 dashBoardButton.addEventListener("click", () => {
-    main.classList.add("hidden");
-    dashboard.classList.remove("hidden");
+    expensesPage.classList.add("hidden");
+    dashboardPage.classList.remove("hidden");
 })
 
 expensesButton.addEventListener("click", () => {
-    main.classList.remove("hidden");
-    dashboard.classList.add("hidden");
+    expensesPage.classList.remove("hidden");
+    dashboardPage.classList.add("hidden");
 })
+
