@@ -143,6 +143,7 @@ const newExpense = () => {
         dashHighCategory.innerText = getHighestCategory(categories)
         console.log("Total Number Of Expenses: " + getNumberOfExpenses(categories))
         noOfExpenses.innerText = getNumberOfExpenses(categories)
+        saveAnalytics()
     }
 
 
@@ -252,6 +253,27 @@ const loadExpenses = () => {
 }
 
 loadExpenses()
+
+const saveAnalytics = () => {
+    localStorage.setItem("highest-category", dashHighCategory.innerText);
+    localStorage.setItem("no-of-expenses", noOfExpenses.innerText);
+}
+
+const loadAnalytics = () => {
+    if (localStorage.getItem("highest-category")) {
+        dashHighCategory.innerText = localStorage.getItem("highest-category")
+    } else {
+        dashHighCategory.innerText = "-"
+    }
+
+    if (localStorage.getItem("no-of-expenses")) {
+        noOfExpenses.innerText = localStorage.getItem("no-of-expenses")
+    } else {
+        noOfExpenses.innerText = "0"
+    }
+}
+
+loadAnalytics()
 
 const expBurger = document.getElementById("exp-burger");
 
