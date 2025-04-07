@@ -195,7 +195,9 @@ document.addEventListener("click", (e) => {
             if (!expenseContainer.querySelector(".expense")) {
                 total = 0
                 totalExpenses.innerText = `£ ${total.toFixed(2)}`
+                dashHighCategory.innerText = "-";
                 saveExpenses()
+                saveAnalytics()
             }
 
         

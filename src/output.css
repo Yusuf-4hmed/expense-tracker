@@ -495,6 +495,15 @@
   .aspect-square {
     aspect-ratio: 1 / 1;
   }
+  .h-1\/10 {
+    height: calc(1/10 * 100%);
+  }
+  .h-1\/50 {
+    height: calc(1/50 * 100%);
+  }
+  .h-1\/100 {
+    height: calc(1/100 * 100%);
+  }
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
@@ -507,11 +516,23 @@
   .h-30 {
     height: calc(var(--spacing) * 30);
   }
+  .h-35 {
+    height: calc(var(--spacing) * 35);
+  }
+  .h-40 {
+    height: calc(var(--spacing) * 40);
+  }
   .h-45 {
     height: calc(var(--spacing) * 45);
   }
   .h-65 {
     height: calc(var(--spacing) * 65);
+  }
+  .h-80 {
+    height: calc(var(--spacing) * 80);
+  }
+  .h-90 {
+    height: calc(var(--spacing) * 90);
   }
   .h-dvh {
     height: 100dvh;
@@ -1146,13 +1167,33 @@
     border-right-style: var(--tw-border-style);
     border-right-width: 1px;
   }
+  .border-r-2 {
+    border-right-style: var(--tw-border-style);
+    border-right-width: 2px;
+  }
   .border-b {
     border-bottom-style: var(--tw-border-style);
     border-bottom-width: 1px;
   }
+  .border-b-1 {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 1px;
+  }
+  .border-b-2 {
+    border-bottom-style: var(--tw-border-style);
+    border-bottom-width: 2px;
+  }
   .border-l {
     border-left-style: var(--tw-border-style);
     border-left-width: 1px;
+  }
+  .border-l-1 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 1px;
+  }
+  .border-l-2 {
+    border-left-style: var(--tw-border-style);
+    border-left-width: 2px;
   }
   .border-dashed {
     --tw-border-style: dashed;
@@ -1180,6 +1221,9 @@
   }
   .border-gray-200 {
     border-color: var(--color-gray-200);
+  }
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
   }
   .border-b-gray-300 {
     border-bottom-color: var(--color-gray-300);
@@ -2155,9 +2199,19 @@
       padding: calc(var(--spacing) * 5);
     }
   }
+  .sm\:p-10 {
+    @media (width >= 40rem) {
+      padding: calc(var(--spacing) * 10);
+    }
+  }
   .sm\:pr-5 {
     @media (width >= 40rem) {
       padding-right: calc(var(--spacing) * 5);
+    }
+  }
+  .sm\:pl-10 {
+    @media (width >= 40rem) {
+      padding-left: calc(var(--spacing) * 10);
     }
   }
   .sm\:text-3xl {
