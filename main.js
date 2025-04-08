@@ -144,6 +144,9 @@ const newExpense = () => {
         console.log("Total Number Of Expenses: " + getNumberOfExpenses(categories))
         noOfExpenses.innerText = getNumberOfExpenses(categories)
         saveAnalytics()
+
+        updateBarChart()
+        
     }
 
 
@@ -176,6 +179,8 @@ document.addEventListener("click", (e) => {
                 console.log(categories)
             }
 
+            updateBarChart()
+
             console.log("Highest Category: " + getHighestCategory(categories))
             dashHighCategory.innerText = getHighestCategory(categories)
             console.log("Total Number Of Expenses: " + getNumberOfExpenses(categories))
@@ -191,6 +196,8 @@ document.addEventListener("click", (e) => {
             saveExpenses()
 
             deleteExpense.classList.add("hidden")
+
+            
 
             if (!expenseContainer.querySelector(".expense")) {
                 total = 0
@@ -211,9 +218,12 @@ document.addEventListener("click", (e) => {
         })
         
 
+
+
         
     }
 })
+
 
 const saveExpenses = () => {
     localStorage.setItem("expenses", expenseContainer.innerHTML);
@@ -255,6 +265,7 @@ const loadExpenses = () => {
 }
 
 loadExpenses()
+
 
 const saveAnalytics = () => {
     localStorage.setItem("highest-category", dashHighCategory.innerText);
@@ -335,4 +346,28 @@ expensesButton.addEventListener("click", () => {
     expensesPage.classList.remove("hidden");
     dashboardPage.classList.add("hidden");
 })
+
+const barChart = document.getElementById("bar-chart")
+
+const barBills = document.getElementById("bar-bills")
+const barEntertainment = document.getElementById("bar-entertainment")
+const barFood = document.getElementById("bar-food")
+const barRent = document.getElementById("bar-rent")
+const barDebt = document.getElementById("bar-debt")
+const barCharity = document.getElementById("bar-charity")
+const barEducation = document.getElementById("bar-education")
+
+const updateBarChart = () => {
+    barBills.style.height = `${categories.Bills}%`
+    barEntertainment.style.height = `${categories.Entertainment}%`
+    barFood.style.height = `${categories.Food}%`
+    barRent.style.height = `${categories.Rent}%`
+    barDebt.style.height = `${categories.Debt}%`
+    barCharity.style.height = `${categories.Charity}%`
+    barEducation.style.height = `${categories.Education}%`
+}
+
+updateBarChart()
+
+
 
