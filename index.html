@@ -49,7 +49,7 @@
         </div>
     </article>
     
-    <nav class="w-70 h-dvh border-r-1 border-gray-200 p-4 bg-white sm:static fixed sm:inline hidden z-3" id="nav">
+    <nav class="w-70 h-screen border-r-1 border-gray-200 p-4 bg-white sm:static fixed flex z-3 flex-col" id="nav">
         <h2 class="text-3xl font-bold align">Expense Tracker</h2>
         <ul class="text-xl flex flex-col  mt-10">
             <li class="flex items-center gap-1 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200" id="dashboard-button">
@@ -61,6 +61,10 @@
                 <p>Expenses</p>
             </li>
         </ul>
+        <div class="mt-auto flex items-center gap-2 p-2 rounded-md hover:bg-gray-200 cursor-pointer transition ease-in duration-200">
+            <img class="size-9 rounded-3xl" src="/assets/blank_profile.webp" alt="">
+            Username
+        </div>
     </nav>
     <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh hidden" id="expenses-page">
         <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
@@ -111,15 +115,24 @@
         </div>
         
         <div class=" sm:p-5 p-2">
-            <div class="border-gray-200 border-2 h-90 w-max rounded-xl sm:p-5">
-                <div class="border-gray-300 border-l-1 border-b-1 h-80 flex items-end" id="bar-chart">
-                    <div class="h-0/50 w-20 bg-red-300" id="bar-bills"><p>Bills</p></div>
-                    <div class="h-0/50 w-20 bg-yellow-300" id="bar-entertainment">Entertai</div>
-                    <div class="h-0/50 w-20 bg-purple-300" id="bar-food">Food</div>
-                    <div class="h-0/50 w-20 bg-teal-200" id="bar-rent">Rent</div>
-                    <div class="h-0/50 w-20 bg-orange-300" id="bar-debt">Debt</div>
-                    <div class="h-0/50 w-20 bg-green-300" id="bar-charity">Charity</div>
-                    <div class="h-0/50 w-20 bg-pink-300" id="bar-education">Education</div>
+            <div class="border-gray-200 border-2 h-135 sm:w-auto w-101 rounded-xl sm:p-5">
+                <div class="border-gray-300 border-l-1 border-b-1 h-90 max-w-101 flex items-end" id="bar-chart">
+                    <div class="h-0/50 w-1/7 bg-red-300 flex flex-col gap-3" id="bar-bills"></div>
+                    <div class="h-0/50 w-1/7 bg-yellow-300" id="bar-entertainment"></div>
+                    <div class="h-0/50 w-1/7 bg-purple-300" id="bar-food"></div>
+                    <div class="h-0/50 w-1/7 bg-teal-200" id="bar-rent"></div>
+                    <div class="h-0/50 w-1/7 bg-orange-300" id="bar-debt"></div>
+                    <div class="h-0/50 w-1/7 bg-green-300" id="bar-charity"></div>
+                    <div class="h-0/50 w-1/7 bg-pink-300" id="bar-education"></div>
+                </div>
+                <div class="flex items-end mt-13 max-w-101 text-end">
+                    <p class="w-25 -rotate-90">Bills</p>
+                    <p class="w-25 -rotate-90">Entertainment</p>
+                    <p class="w-25 -rotate-90">Food</p>
+                    <p class="w-25 -rotate-90">Rent</p>
+                    <p class="w-25 -rotate-90">Debt</p>
+                    <p class="w-25 -rotate-90">Charity</p>
+                    <p class="w-25 -rotate-90">Education</p>
                 </div>
             </div>
         </div>

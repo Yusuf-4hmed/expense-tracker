@@ -300,11 +300,13 @@ const ExpShowNav = () => {
 }
 
 expensesPage.addEventListener("click", (e) => {
-    if (!e.target.closest(".small-nav")) {
+    if (!e.target.closest(".small-nav") && window.matchMedia("(max-width: 640px)").matches) {
       ExpHideNav()  
     }
     
 })
+
+
 
 expBurger.addEventListener("click", () => {
     ExpShowNav()
@@ -324,7 +326,7 @@ const DashShowNav = () => {
 }
 
 dashboardPage.addEventListener("click", (e) => {
-    if (!e.target.closest(".small-nav")) {
+    if (!e.target.closest(".small-nav") && window.matchMedia("(max-width: 640px)").matches) {
       DashHideNav()  
     }
     
@@ -369,5 +371,8 @@ const updateBarChart = () => {
 
 updateBarChart()
 
-
-
+window.addEventListener('resize', () => {
+    if (window.innerWidth >= 640) {
+        nav.classList.remove("hidden")
+    }
+})
