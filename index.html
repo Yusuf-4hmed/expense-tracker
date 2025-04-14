@@ -66,7 +66,7 @@
             Username
         </div>
     </nav>
-    <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh hidden" id="expenses-page">
+    <section class="sm:p-2 p-1 bg-white w-10/10 sm:pr-5 h-dvh hidden h-100 overflow-auto" id="expenses-page">
         <div class=" flex items-center justify-between text-center font-bold text-xl mb-5 sm:hidden small-nav border-b border-b-gray-300">
             <svg id="exp-burger" class="w-10 h-10 text-gray-800 dark:text-white hover:cursor-pointer" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">
                 <path stroke="black" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/>
@@ -115,8 +115,8 @@
         </div>
         
         <div class=" sm:p-5 p-2">
-            <div class="border-gray-200 border-2 h-135 sm:w-auto w-101 rounded-xl sm:p-5">
-                <div class="border-gray-300 border-l-1 border-b-1 h-90 max-w-101 flex items-end" id="bar-chart">
+            <div class="border-gray-200 border-2 h-85 sm:w-auto w-auto rounded-xl sm:p-5">
+                <div class="border-gray-300 border-l-1 border-b-1 h-45 max-w-101 flex items-end" id="bar-chart">
                     <div class="h-0/50 w-1/7 bg-red-300 flex flex-col gap-3" id="bar-bills"></div>
                     <div class="h-0/50 w-1/7 bg-yellow-300" id="bar-entertainment"></div>
                     <div class="h-0/50 w-1/7 bg-purple-300" id="bar-food"></div>
@@ -125,14 +125,14 @@
                     <div class="h-0/50 w-1/7 bg-green-300" id="bar-charity"></div>
                     <div class="h-0/50 w-1/7 bg-pink-300" id="bar-education"></div>
                 </div>
-                <div class="flex items-end mt-13 max-w-101 text-end">
-                    <p class="w-25 -rotate-90">Bills</p>
-                    <p class="w-25 -rotate-90">Entertainment</p>
-                    <p class="w-25 -rotate-90">Food</p>
-                    <p class="w-25 -rotate-90">Rent</p>
-                    <p class="w-25 -rotate-90">Debt</p>
-                    <p class="w-25 -rotate-90">Charity</p>
-                    <p class="w-25 -rotate-90">Education</p>
+                <div class="flex items-end mt-20 max-w-101 text-end">
+                    <p class="w-1/7 -rotate-90">Bills</p>
+                    <p class="w-1/7 -rotate-90">Entertainment</p>
+                    <p class="w-1/7 -rotate-90">Food</p>
+                    <p class="w-1/7 -rotate-90">Rent</p>
+                    <p class="w-1/7 -rotate-90">Debt</p>
+                    <p class="w-1/7 -rotate-90">Charity</p>
+                    <p class="w-1/7 -rotate-90">Education</p>
                 </div>
             </div>
         </div>
