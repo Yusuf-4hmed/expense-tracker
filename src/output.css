@@ -2181,9 +2181,24 @@
       width: calc(var(--spacing) * 60);
     }
   }
+  .sm\:w-80 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 80);
+    }
+  }
+  .sm\:w-90 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 90);
+    }
+  }
   .sm\:w-110 {
     @media (width >= 40rem) {
       width: calc(var(--spacing) * 110);
+    }
+  }
+  .sm\:w-120 {
+    @media (width >= 40rem) {
+      width: calc(var(--spacing) * 120);
     }
   }
   .sm\:w-130 {
