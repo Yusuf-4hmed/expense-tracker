@@ -1,4 +1,4 @@
-<h3 align="center">Spend Easy</h3>
+<h3 align="center">Expense Tracker</h3>
 
   <p align="center">
  Visualises your expenses
@@ -9,13 +9,15 @@
 <a href="https://yusuf-4hmed.github.io/expense-tracker/" target="_blank">Site Link</a>
 
 ### How To Use:
-
-- Add your monthly expeses to see the total
+- Visit the Site Link above
+- Add your monthly expenses with categories and amount
+- View the dasboard to get a simple visulisation of your expenses
 <br>
 
 Some things I am planning to add:
 - [x] Add expenses page
-- [ ] Dashboard
+- [x] Dashboard
+- [ ] Add "travel" as a category
 
 ### Built With
 
