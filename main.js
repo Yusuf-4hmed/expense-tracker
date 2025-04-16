@@ -376,3 +376,7 @@ window.addEventListener('resize', () => {
         nav.classList.remove("hidden")
     }
 })
+
+const annualTotal = document.getElementById("annual-total");
+
+annualTotal.innerText = `£ ${total * 12}`
